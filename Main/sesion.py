@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 import mysql.connector
 import json
-from DoctorPanel import panelDoctor
+from PanelRecepcion import panelRecepcion
 
 
 # Función para leer configuración de la base de datos desde un archivo JSON
@@ -101,9 +101,8 @@ def authenticate(usuario, password, caso):
         if result:
             # Obtener el tipo de usuario
             tipo_usuario = caso.lower()  # Convertir la opción seleccionada a minúsculas
-            if tipo_usuario.capitalize() == "Doctor":
-                panelDoctor.panelDoctorChido()
-                app.destroy()
+            if tipo_usuario == "recepcionista":
+                panelRecepcion.hola()
         else:
             messagebox.showerror("Error", "Usuario o contraseña incorrectos")
         
